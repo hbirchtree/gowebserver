@@ -97,6 +97,14 @@ echo "testing_cid=$testing_cid" > props.env
     environmentVariables {
       propertiesFile('props.env')
     }
+    
+    shell('''
+    git clone https://github.com/hbirchtree/gowebserver.git gowebserver/
+    ls
+    ls gowebserver/
+    sudo docker run --rm -v "$WORKSPACE/gowebserver":/usr/src/myapp -w /usr/src/myapp golang:1.6 go test -v
+    ''')
+    
     shell('''
 cip=$(sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' ${testing_cid})
 sudo docker run --rm rufus/siege-engine  -b -t60S http://$cip:8000/ > output 2>&1
@@ -115,13 +123,6 @@ else
 	exit 1
 fi
 ''')
-
-    shell('''
-
-    git clone https://github.com/hbirchtree/gowebserver.git
-    sudo docker run --rm -v "$WORKSPACE/gowebserver":/usr/src/myapp -w /usr/src/myapp golang:1.6 go test -v
-
-    ''')
 
   }
   publishers {
