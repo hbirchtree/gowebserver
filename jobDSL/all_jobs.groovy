@@ -103,6 +103,7 @@ echo "testing_cid=$testing_cid" > props.env
     	cd gowebserver && git pull
     else
     	git clone https://github.com/hbirchtree/gowebserver.git gowebserver/
+    	cd gowebserver
     fi
     ls
     sudo docker run --rm -v "$WORKSPACE/gowebserver":/usr/src/myapp -w /usr/src/myapp golang:1.6 go test -v
