@@ -25,10 +25,15 @@ func to_roman(n int)  string {
 
     fmt.Println("map:", m)
 
+  //  for k, _ := range m {
+
+  //  }
 
 
-    if n == 2 {
-        return "II"
+
+
+    if len(m[n]) != 0 {
+        return m[n]
     }
     return "I"
 }

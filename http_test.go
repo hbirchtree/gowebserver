@@ -59,9 +59,26 @@ func numberTest( t *T , i int, s string) {
 }
 
 func TestRomanTwo(t *T) {
-
   numberTest(t, 2 ,"II")
-  //numberTest(3,"III")
-  //numberTest(5,"V")
+}
 
+func TestRoman3(t *T) {
+  numberTest(t, 3 ,"III")
+}
+
+
+func TestRoman5(t *T) {
+  numberTest(t, 5 ,"V")
+}
+
+func TestRoman10(t *T) {
+  numberTest(t, 10 ,"X")
+}
+
+func TestRoman50(t *T) {
+  numberTest(t, 50 ,"L")
+}
+
+func TestRoman100(t *T) {
+  numberTest(t, 100 ,"C")
 }
