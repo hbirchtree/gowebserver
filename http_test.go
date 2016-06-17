@@ -93,7 +93,3 @@ func TestRoman1990(t *T) {
 func TestRoman2014(t *T) {
   numberTest(t, 2014 ,"MMXIV")
 }
-
-func TestRoman201(t *T) {
-  numberTest(t, 201 ,"MMXIV")
-}
