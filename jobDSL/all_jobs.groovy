@@ -117,8 +117,10 @@ fi
 ''')
 
     shell('''
+
     git clone https://github.com/hbirchtree/gowebserver.git
     sudo docker run --rm -v "$WORKSPACE/gowebserver":/usr/src/myapp -w /usr/src/myapp golang:1.6 go test -v
+
     ''')
 
   }
