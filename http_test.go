@@ -1,6 +1,7 @@
 package main
 
 import (
+    "strconv"
     "fmt"
     "net/http"
     "net/http/httptest"
@@ -43,18 +44,24 @@ func TestRomanOne(t *T) {
 
 }
 
+func numberTest( t *T , i int, s string) {
+  n := romanGenerator(1)
+  r, _ := http.NewRequest("GET", "/roman/"+strconv.Itoa(i), nil)
+  w := httptest.NewRecorder()
+  n.ServeHTTP(w, r)
+  if w.Code != 200 {
+      t.Fatalf("wrong code returned: %d", w.Code)
+  }
+  body := w.Body.String()
+  if body != fmt.Sprintf("Here's your number: %s\n", s) {
+      t.Fatalf("wrong body returned: %s", body)
+  }
+}
 
 func TestRomanTwo(t *T) {
-    n := romanGenerator(1)
-    r, _ := http.NewRequest("GET", "/roman/2", nil)
-    w := httptest.NewRecorder()
-    n.ServeHTTP(w, r)
-    if w.Code != 200 {
-        t.Fatalf("wrong code returned: %d", w.Code)
-    }
-    body := w.Body.String()
-    if body != fmt.Sprintf("Here's your number: II\n") {
-        t.Fatalf("wrong body returned: %s", body)
-    }
+
+  numberTest(t, 2 ,"II")
+  //numberTest(3,"III")
+  //numberTest(5,"V")
 
 }

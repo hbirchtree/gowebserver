@@ -13,6 +13,20 @@ func hello(w http.ResponseWriter, r *http.Request) {
 }
 
 func to_roman(n int)  string {
+  m := make(map[int]string)
+
+    m[1] = "I"
+    m[2] = "II"
+    m[3] = "III"
+    m[5] = "V"
+    m[10] = "X"
+    m[50] = "L"
+    m[100] = "C"
+
+    fmt.Println("map:", m)
+
+
+
     if n == 2 {
         return "II"
     }
