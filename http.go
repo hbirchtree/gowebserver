@@ -6,36 +6,34 @@ import (
     "log"
     "net/http"
     "strconv"
+
 )
+
+var m = map[int]string{1000:"M",900:"CM",500:"D",400:"CD",100:"C",90:"XC",50:"L",40:"XL",10:"X",9:"IX",5:"V",4:"IV",1:"I"}
 
 func hello(w http.ResponseWriter, r *http.Request) {
     io.WriteString(w, "Hello world!")
 }
 
-func to_roman(n int)  string {
-  m := make(map[int]string)
-
-    m[1] = "I"
-    m[2] = "II"
-    m[3] = "III"
-    m[5] = "V"
-    m[10] = "X"
-    m[50] = "L"
-    m[100] = "C"
-
-    fmt.Println("map:", m)
-
-  //  for k, _ := range m {
-
-  //  }
+func to_roman(i int)  string {
 
 
 
+    liste  := []int{1000,900,500,400,100,90,50,40,10,9,5,4,1}
 
-    if len(m[n]) != 0 {
-        return m[n]
+    s:=""
+    for k  := range(liste){
+    antall := i/liste[k]
+    i-=antall*liste[k]
+
+    for it := 1; it <= antall; it++ {
+        s+=m[liste[k]]
+        }
     }
-    return "I"
+
+    //fmt.Println(s)
+    //fmt.Println(liste)
+    return s
 }
 
 type romanGenerator int

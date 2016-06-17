@@ -82,3 +82,14 @@ func TestRoman50(t *T) {
 func TestRoman100(t *T) {
   numberTest(t, 100 ,"C")
 }
+
+func TestRoman1954(t *T) {
+  numberTest(t, 1954 ,"MCMLIV")
+}
+
+func TestRoman1990(t *T) {
+  numberTest(t, 1990 ,"MCMXC")
+}
+func TestRoman2014(t *T) {
+  numberTest(t, 2014 ,"MMXIV")
+}
