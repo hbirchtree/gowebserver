@@ -116,6 +116,10 @@ else
 fi
 ''')
 
+    shell('''
+    sudo docker run --rm -v ".":/usr/src/myapp -w /usr/src/myapp golang:1.6 go test -v
+    ''')
+
   }
   publishers {
     downstreamParameterized {

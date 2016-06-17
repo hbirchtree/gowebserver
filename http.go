@@ -21,13 +21,16 @@ func to_roman(i int)  string {
 
     liste  := []int{1000,900,500,400,100,90,50,40,10,9,5,4,1}
 
-    s:=""
-    for k  := range(liste){
-    antall := i/liste[k]
-    i-=antall*liste[k]
+    s:=""   //result - the roman number
 
-    for it := 1; it <= antall; it++ {
-        s+=m[liste[k]]
+    //find how many times the biggest number in [liste] fits in number(i)
+    for k  := range(liste){
+      antall := i/liste[k]
+      i-=antall*liste[k]
+
+      // find number of times the number is contained in that number
+      for it := 1; it <= antall; it++ {
+          s+=m[liste[k]]
         }
     }
 
