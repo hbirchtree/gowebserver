@@ -106,7 +106,7 @@ echo "testing_cid=$testing_cid" > props.env
     	cd gowebserver
     fi
     ls
-    sudo docker run --rm -v "$WORKSPACE/gowebserver":/usr/src/myapp -w /usr/src/myapp golang:1.6 go test -v
+    sudo docker run --rm -v "/var/lib/docker/volumes/63aaf116e0f08b5a6d081748ed384d558278eacc2f6d5215389a3cae56fa9450/_data/workspace/2.test-webserver_GEN/gowebserver":/usr/src/myapp -w /usr/src/myapp golang:1.6 go test -v
     ''')
     
     shell('''
